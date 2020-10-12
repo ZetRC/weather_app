@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+
+.dataContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40vh;
+}
+
+.generalWeather {
+  font-size: 3em;
+
+  display: block;
+}
+
+.specificWeather {
+  font-size: 1.5em;
+  display: block;
+}
+
+.place {
+  font-size: 4em;
+  top: -25vh;
+  display: block;
+  position: relative;
+}
+
+.weatherIcon {
+  font-size: 10em;
+}
+
+.inputContainer {
+  position: absolute;
+  top: 3vh;
+  left: 5%;
+}
+
+.inputField {
+  width: 30vh;
+  height: 5vh;
+  outline: none;
+  padding: 0 1vh;
+}
+
+.buttonOne {
+  background: none;
+  color: white;
+  font-size: 1.2em;
+  display: inline;
+}
+
+.appLogo {
+  font-size: 2.5em;
+  font-weight: bold;
+  position: relative;
+  margin-right: 3vh;
+}
