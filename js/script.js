@@ -9,7 +9,9 @@ let generalWeather=document.querySelector(".generalWeather")
 let specificWeather=document.querySelector(".specificWeather")
 let place=document.querySelector(".place")
 let weahterIcon=document.querySelector(".weatherIcon")
-let cityArray=["tokyo,japan","berlin,germany","sydney,australia","france,paris"]
+let cityArray=["tokyo,japan","berlin,germany","sydney,australia","paris,france"]
+let temperature=document.querySelector(".temperature")
+let country=document.querySelector(".country")
 
 buttonOne.addEventListener("click", function () {
 getWeatherData(inputFiled.value)
@@ -33,8 +35,15 @@ let getWeatherData=function(value){
     .then((data) =>{console.log(data)      
       console.log(data.weather[0].main)
       console.log(data.weather[0].description)
-      place.innerHTML=data.name
-      let generalWeatherVar=data.weather[0].main
+      place.innerHTML=data.name+","
+      country.innerHTML=data.sys.country
+      temperature.innerHTML=data.main.temp
+/*       temperature.innerHTML
+ */
+       console.log(data.main.temp)
+       console.log(data.main.temp-273.15)
+       console.log(data.sys.country)
+       let generalWeatherVar=data.weather[0].main
       if(generalWeatherVar==="Clear"){
         weahterIcon.innerHTML='<i class="fas fa-sun"></i>'
       }else if(generalWeatherVar==="Clouds"){
@@ -48,24 +57,6 @@ let getWeatherData=function(value){
       specificWeather.innerHTML=data.weather[0].description
     })
 }
-/* 
-let weahterIcon=document.querySelector(".weatherIcon")
-let generalWeatherVar=generalWeather.innerHTML
-console.log(generalWeatherVar)
-let getIcon=function(){
-  if(generalWeatherVar==="Clea"){
-    weahterIcon.innerHTML='<i class="fas fa-sun"></i>'
-  }else if(generalWeatherVar=="Clouds"){
-    weahterIcon='<i class="fas fa-cloud"></i>'
-  }else if(generalWeatherVar=="Rain"){
-    weahterIcon='<i class="fas fa-cloud-showers-heavy"></i>'
-  }else{
-    console.log("err")
-  }
-
-  console.log(weahterIcon.innerHTML)
-}
- */
 let inputLogic=function(){
   console.log(inputFiled.value)
   inputFiled.value=""
