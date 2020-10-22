@@ -23,7 +23,9 @@ addEventListener("DOMContentLoaded",function(){
   inputLogic()
   getWeeklyWeather()
 })
-
+let dayTwoWeather=document.querySelector(".dayTwoWeather")
+let dayThreeWeather=document.querySelector(".dayThreeWeather")
+let dayFourWeather=document.querySelector(".dayFourWeather")
 let getWeeklyWeather=function(){
   fetch("https://api.openweathermap.org/data/2.5/forecast?q=london,uk&appid="+api_key)
   .then(res=>res.json())
@@ -33,9 +35,33 @@ let getWeeklyWeather=function(){
     console.log(data.list[0])
     console.log(data.list[0].weather)
     console.log(data.list[0].weather[0])
+    console.log(data.list[0].dt_txt)
     console.log(data.list[0].weather[0].main)
     console.log(data.list[0].weather[0].description)
-  })
+    
+    let getIcon=function(weatherVar){
+      if(weatherVar==="Clear"){
+        return '<i class="fas fa-sun"></i>'
+      }else if(weatherVar==="Clouds"){
+        return '<i class="fas fa-cloud"></i>'
+      }else if(weatherVar==="Rain"){
+        return '<i class="fas fa-tint"></i>'
+      }else{
+        return '<i class="fas fa-cloud"></i>'
+      }
+    }
+
+    console.log(getIcon("Clear"))
+/* 
+    let addTwoNumbers=function(a,b){
+      return a+b
+    }
+
+    console.log(addTwoNumbers(1,2))
+ */
+    
+dayTwoWeather.innerHTML="<h1>"+getIcon(data.list[8].weather[0].main)+"</h1><h3>"+data.list[8].weather[0].main+"</h3><h5>"+data.list[8].dt_txt.substr(0,10)+"</h5>"
+})
 }
 
 
@@ -47,16 +73,11 @@ let getWeatherData=function(value){
       api_key
   )
     .then((res) => res.json())
-    .then((data) =>{/* console.log(data) */      
-      /* console.log(data.weather[0].main)
-      console.log(data.weather[0].description) */
+    .then((data) =>{
       place.innerHTML=data.name+","
       country.innerHTML=data.sys.country
       temperature.innerHTML=data.main.temp
-/* 
-       console.log(data.main.temp)
-       console.log(data.main.temp-273.15)
-       console.log(data.sys.country) */
+
        let generalWeatherVar=data.weather[0].main
       if(generalWeatherVar==="Clear"){
         weahterIcon.innerHTML='<i class="fas fa-sun"></i>'
