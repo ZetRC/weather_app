@@ -21,28 +21,42 @@ inputLogic()
 addEventListener("DOMContentLoaded",function(){
   getWeatherData(cityArray[Math.floor(Math.random()*4)])
   inputLogic()
+  getWeeklyWeather()
 })
+
+let getWeeklyWeather=function(){
+  fetch("https://api.openweathermap.org/data/2.5/forecast?q=london,uk&appid="+api_key)
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data)
+    console.log(data.list)
+    console.log(data.list[0])
+    console.log(data.list[0].weather)
+    console.log(data.list[0].weather[0])
+    console.log(data.list[0].weather[0].main)
+    console.log(data.list[0].weather[0].description)
+  })
+}
 
 
 let getWeatherData=function(value){
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      /* inputFiled.value */value +
+      value +
       "&appid=" +
       api_key
   )
     .then((res) => res.json())
-    .then((data) =>{console.log(data)      
-      console.log(data.weather[0].main)
-      console.log(data.weather[0].description)
+    .then((data) =>{/* console.log(data) */      
+      /* console.log(data.weather[0].main)
+      console.log(data.weather[0].description) */
       place.innerHTML=data.name+","
       country.innerHTML=data.sys.country
       temperature.innerHTML=data.main.temp
-/*       temperature.innerHTML
- */
+/* 
        console.log(data.main.temp)
        console.log(data.main.temp-273.15)
-       console.log(data.sys.country)
+       console.log(data.sys.country) */
        let generalWeatherVar=data.weather[0].main
       if(generalWeatherVar==="Clear"){
         weahterIcon.innerHTML='<i class="fas fa-sun"></i>'
@@ -58,9 +72,10 @@ let getWeatherData=function(value){
     })
 }
 let inputLogic=function(){
-  console.log(inputFiled.value)
   inputFiled.value=""
 }
+
+
 
 
 
