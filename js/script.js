@@ -9,18 +9,19 @@ let generalWeather=document.querySelector(".generalWeather")
 let specificWeather=document.querySelector(".specificWeather")
 let place=document.querySelector(".place")
 let weahterIcon=document.querySelector(".weatherIcon")
-let cityArray=["tokyo,japan","berlin,germany","sydney,australia","paris,france"]
+let cityArray=["tokyo,japan","berlin,germany","sydney,australia","paris,france",]
 let temperature=document.querySelector(".temperature")
 let country=document.querySelector(".country")
 let inputalue=inputFiled.value
+let time=document.querySelector(".time")
 buttonOne.addEventListener("click", function () {
-getWeatherData(inputFiled.value)
+/* getWeatherData(inputFiled.value) */
 getWeeklyWeather(inputFiled.value)
 inputLogic()
 });
 
 addEventListener("DOMContentLoaded",function(){
-  getWeatherData(cityArray[Math.floor(Math.random()*4)])
+  getWeeklyWeather(cityArray[Math.floor(Math.random()*4)]) 
   inputLogic()
   
 })
@@ -35,13 +36,10 @@ let getWeeklyWeather=function(inputValue){
     console.log(data)
     console.log(data.city.name)
     console.log(data.city.country)
-    console.log(data.list[0].main) 
-    console.log(data.list[0].main.temp)/* 
-    console.log(data.list[0].main.temp-max)
-    console.log(data.list[0].main.temp-min) */
+    console.log(data.list[0].main.temp)
     console.log(data.list[0].dt_txt)
-    console.log(data.list[8].weather[0].main)
-    console.log(data.list[8].weather[0].description)
+    console.log(data.list[0].weather[0].main)
+    console.log(data.list[0].weather[0].description)
    
 
     
@@ -58,47 +56,25 @@ let getWeeklyWeather=function(inputValue){
     }
 
 
-dayTwoWeather.innerHTML="<h1>"+getIcon(data.list[8].weather[0].main)+"</h1><h3>"+data.list[8].weather[0].main+"</h3><h5>"+data.list[8].dt_txt.substr(0,10)+"</h5>"
-dayThreeWeather.innerHTML="<h1>"+getIcon(data.list[16].weather[0].main)+"</h1><h3>"+data.list[16].weather[0].main+"</h3><h5>"+data.list[16].dt_txt.substr(0,10)+"</h5>"
-dayFourWeather.innerHTML="<h1>"+getIcon(data.list[24].weather[0].main)+"</h1><h3>"+data.list[24].weather[0].main+"</h3><h5>"+data.list[24].dt_txt.substr(0,10)+"</h5>"
-dayFiveWeather.innerHTML="<h1>"+getIcon(data.list[32].weather[0].main)+"</h1><h3>"+data.list[32].weather[0].main+"</h3><h5>"+data.list[32].dt_txt.substr(0,10)+"</h5>"
+    place.innerHTML=data.city.name+","
+    country.innerHTML=data.city.country
+    time.innerHTML=data.list[0].dt_txt.substr(0,10)
+    weahterIcon.innerHTML= getIcon(data.list[0].weather[0].main)
+    generalWeather.innerHTML=data.list[0].weather[0].main
+      specificWeather.innerHTML=data.list[0].weather[0].description
+
+dayTwoWeather.innerHTML="<h1>"+getIcon(data.list[8].weather[0].main)+"</h1><h3>"+data.list[8].weather[0].main+"</h3><h5>"+data.list[8].dt_txt.substr(5,6)+"</h5>"
+dayThreeWeather.innerHTML="<h1>"+getIcon(data.list[16].weather[0].main)+"</h1><h3>"+data.list[16].weather[0].main+"</h3><h5>"+data.list[16].dt_txt.substr(5,6)+"</h5>"
+dayFourWeather.innerHTML="<h1>"+getIcon(data.list[24].weather[0].main)+"</h1><h3>"+data.list[24].weather[0].main+"</h3><h5>"+data.list[24].dt_txt.substr(5,6)+"</h5>"
+dayFiveWeather.innerHTML="<h1>"+getIcon(data.list[32].weather[0].main)+"</h1><h3>"+data.list[32].weather[0].main+"</h3><h5>"+data.list[32].dt_txt.substr(5,6)+"</h5>"
 })
 }
 
-
-let getWeatherData=function(value){
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-      value +
-      "&appid=" +
-      api_key
-  )
-    .then((res) => res.json())
-    .then((data) =>{
-      place.innerHTML=data.name+","
-      country.innerHTML=data.sys.country
-      temperature.innerHTML=data.main.temp
-
-       let generalWeatherVar=data.weather[0].main
-      if(generalWeatherVar==="Clear"){
-        weahterIcon.innerHTML='<i class="fas fa-sun"></i>'
-      }else if(generalWeatherVar==="Clouds"){
-        weahterIcon.innerHTML='<i class="fas fa-cloud"></i>'
-      }else if(generalWeatherVar==="Rain"){
-        weahterIcon.innerHTML='<i class="fas fa-tint"></i>'
-      }else{
-        weahterIcon.innerHTML='<i class="fas fa-cloud"></i>'
-      }
-      generalWeather.innerHTML=data.weather[0].main+"<br>"
-      specificWeather.innerHTML=data.weather[0].description
-    })
-}
 let inputLogic=function(){
   inputFiled.value=""
 }
 
-
-
+console.log(new Date().getDay())
 
 
 
