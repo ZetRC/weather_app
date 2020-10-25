@@ -100,30 +100,11 @@ body {
   margin-right: 3vh;
   color: white;
 }
-/* 
-.weekWeatherContainer span {
-  display: inline;
-  color: white;
-  border: 1px solid black;
-  margin: 5vh;
-  padding: 5vh;
-  position: absolute;
-}
-
-.dayTwoWeather {
-  top: 0;
-  left: 0;
-}
-.dayTwoWeather {
-  top: 0;
-  left: 0;
-}
- */
 
 .weekWeatherContainer {
   display: flex;
   position: absolute;
-  top: 0;
+  top: 2vh;
   right: 0;
   justify-content: space-between;
 }
@@ -131,4 +112,39 @@ body {
 .weekWeatherContainer span {
   color: white;
   margin: 0 5vh;
+}
+
+.weekWeatherContainer div {
+  font-size: 2em;
+}
+
+.slideBarIcon {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .weekWeatherContainer {
+    display: none;
+  }
+
+  .slidebarIcon {
+    display: inline;
+    color: white;
+    position: absolute;
+    top: 3vh;
+    right: 3vh;
+    font-size: 2.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .appLogo {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .inputField {
+    width: 75%;
+  }
 }

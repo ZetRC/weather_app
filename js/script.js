@@ -15,9 +15,15 @@ let country=document.querySelector(".country")
 let inputalue=inputFiled.value
 let time=document.querySelector(".time")
 buttonOne.addEventListener("click", function () {
-/* getWeatherData(inputFiled.value) */
 getWeeklyWeather(inputFiled.value)
 inputLogic()
+});
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    getWeeklyWeather(inputFiled.value)
+inputLogic()
+  }
 });
 
 addEventListener("DOMContentLoaded",function(){
@@ -25,6 +31,7 @@ addEventListener("DOMContentLoaded",function(){
   inputLogic()
   
 })
+
 let dayTwoWeather=document.querySelector(".dayTwoWeather")
 let dayThreeWeather=document.querySelector(".dayThreeWeather")
 let dayFourWeather=document.querySelector(".dayFourWeather")
@@ -39,9 +46,7 @@ let getWeeklyWeather=function(inputValue){
     console.log(data.list[0].main.temp)
     console.log(data.list[0].dt_txt)
     console.log(data.list[0].weather[0].main)
-    console.log(data.list[0].weather[0].description)
-   
-
+    console.log(data.list[0].weather[0].description)    
     
     let getIcon=function(weatherVar){
       if(weatherVar==="Clear"){
@@ -63,18 +68,20 @@ let getWeeklyWeather=function(inputValue){
     generalWeather.innerHTML=data.list[0].weather[0].main
       specificWeather.innerHTML=data.list[0].weather[0].description
 
-dayTwoWeather.innerHTML="<h1>"+getIcon(data.list[8].weather[0].main)+"</h1><h3>"+data.list[8].weather[0].main+"</h3><h5>"+data.list[8].dt_txt.substr(5,6)+"</h5>"
-dayThreeWeather.innerHTML="<h1>"+getIcon(data.list[16].weather[0].main)+"</h1><h3>"+data.list[16].weather[0].main+"</h3><h5>"+data.list[16].dt_txt.substr(5,6)+"</h5>"
-dayFourWeather.innerHTML="<h1>"+getIcon(data.list[24].weather[0].main)+"</h1><h3>"+data.list[24].weather[0].main+"</h3><h5>"+data.list[24].dt_txt.substr(5,6)+"</h5>"
-dayFiveWeather.innerHTML="<h1>"+getIcon(data.list[32].weather[0].main)+"</h1><h3>"+data.list[32].weather[0].main+"</h3><h5>"+data.list[32].dt_txt.substr(5,6)+"</h5>"
+dayTwoWeather.innerHTML="<div>"+getIcon(data.list[8].weather[0].main)+"</div><h5>"+data.list[8].dt_txt.substr(5,6)+"</h5>"
+dayThreeWeather.innerHTML="<div>"+getIcon(data.list[16].weather[0].main)+"</div><h5>"+data.list[16].dt_txt.substr(5,6)+"</h5>"
+dayFourWeather.innerHTML="<div>"+getIcon(data.list[24].weather[0].main)+"</div><h5>"+data.list[24].dt_txt.substr(5,6)+"</h5>"
+dayFiveWeather.innerHTML="<div>"+getIcon(data.list[32].weather[0].main)+"</div><h5>"+data.list[32].dt_txt.substr(5,6)+"</h5>"
 })
 }
+
 
 let inputLogic=function(){
   inputFiled.value=""
 }
 
-console.log(new Date().getDay())
 
+$(function(){
 
-
+    
+})
