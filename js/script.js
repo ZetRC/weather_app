@@ -64,14 +64,17 @@ let getWeeklyWeather=function(inputValue){
     place.innerHTML=data.city.name+","
     country.innerHTML=data.city.country
     time.innerHTML=data.list[0].dt_txt.substr(0,10)
+    temperature.innerHTML=Math.floor(data.list[0].main.temp-273.15)+"C"
     weahterIcon.innerHTML= getIcon(data.list[0].weather[0].main)
     generalWeather.innerHTML=data.list[0].weather[0].main
       specificWeather.innerHTML=data.list[0].weather[0].description
 
-dayTwoWeather.innerHTML="<div>"+getIcon(data.list[8].weather[0].main)+"</div><h5>"+data.list[8].dt_txt.substr(5,6)+"</h5>"
-dayThreeWeather.innerHTML="<div>"+getIcon(data.list[16].weather[0].main)+"</div><h5>"+data.list[16].dt_txt.substr(5,6)+"</h5>"
-dayFourWeather.innerHTML="<div>"+getIcon(data.list[24].weather[0].main)+"</div><h5>"+data.list[24].dt_txt.substr(5,6)+"</h5>"
-dayFiveWeather.innerHTML="<div>"+getIcon(data.list[32].weather[0].main)+"</div><h5>"+data.list[32].dt_txt.substr(5,6)+"</h5>"
+    let getWeeklyWaetherData
+
+dayTwoWeather.innerHTML="<div>"+getIcon(data.list[8].weather[0].main)+"</div>"+Math.floor(data.list[8].main.temp-273.15)+"C"+"</h6>"+"</div><h5>"+data.list[8].dt_txt.substr(5,6)+"</h5>"
+dayThreeWeather.innerHTML="<div>"+getIcon(data.list[16].weather[0].main)+"</div>"+Math.floor(data.list[16].main.temp-273.15)+"C"+"</div><h5>"+data.list[16].dt_txt.substr(5,6)+"</h5>"
+dayFourWeather.innerHTML="<div>"+getIcon(data.list[24].weather[0].main)+"</div>"+Math.floor(data.list[24].main.temp-273.15)+"C"+"</div><h5>"+data.list[24].dt_txt.substr(5,6)+"</h5>"
+dayFiveWeather.innerHTML="<div>"+getIcon(data.list[32].weather[0].main)+"</div>"+Math.floor(data.list[32].main.temp-273.15)+"C"+"</div><h5>"+data.list[32].dt_txt.substr(5,6)+"</h5>"
 })
 }
 
@@ -80,8 +83,13 @@ let inputLogic=function(){
   inputFiled.value=""
 }
 
+weekWeatherContainer=document.querySelector(".weekWeatherContainer")
+
+
 
 $(function(){
-
-    
+$(".slidebarIcon").on("click",function(){
+  $(".weekWeatherContainer").animate({width:'toggle'},500);
+  
+})
 })

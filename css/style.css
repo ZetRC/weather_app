@@ -14,7 +14,7 @@ body {
 .navbar {
   position: absolute;
   width: 100%;
-  height: 12vh;
+  height: 100px;
   background: black;
 }
 
@@ -25,17 +25,23 @@ body {
   margin-left: auto;
   margin-right: auto;
   top: 40vh;
+  /*   height: 100%;
+ */
 }
 
 .generalWeather {
   font-size: 3em;
 
   display: block;
+  position: relative;
+  top: -5vh;
 }
 
 .specificWeather {
   font-size: 1.5em;
   display: block;
+  position: relative;
+  top: -5vh;
 }
 
 .place,
@@ -47,30 +53,23 @@ body {
 }
 
 .temperature {
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
   font-size: 1.5em;
-  top: -5vh;
+  position: relative;
+  top: -25vh;
+  display: inline;
 }
 
 .time {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: -13vh;
+  position: relative;
   font-size: 2.5em;
+  top: -25vh;
 }
 
 .weatherIcon {
   font-size: 10em;
-  /*   color: rgb(92, 92, 92);
- */
   color: black;
+  position: relative;
+  top: -5vh;
 }
 
 .inputContainer {
@@ -80,8 +79,8 @@ body {
 }
 
 .inputField {
-  width: 30vh;
-  height: 5vh;
+  width: 220px;
+  height: 35px;
   outline: none;
   padding: 0 1vh;
 }
@@ -111,18 +110,18 @@ body {
 
 .weekWeatherContainer span {
   color: white;
-  margin: 0 5vh;
+  margin: 0 5vw;
 }
 
 .weekWeatherContainer div {
   font-size: 2em;
 }
 
-.slideBarIcon {
+.slidebarIcon {
   display: none;
 }
 
-@media (max-width: 850px) {
+/* @media screen and (max-width: 1000px) {
   .weekWeatherContainer {
     display: none;
   }
@@ -136,15 +135,72 @@ body {
     font-size: 2.5em;
   }
 }
-
-@media screen and (max-width: 450px) {
+ */
+@media screen and (max-width: 500px) {
   .appLogo {
     display: none;
   }
 }
 
-@media (max-width: 350px) {
+@media screen and (max-width: 350px) {
   .inputField {
     width: 75%;
+  }
+}
+
+@media (orientation: portrait) {
+  .weekWeatherContainer {
+    display: block;
+  }
+
+  .slidebarIcon {
+    display: inline;
+    color: white;
+    position: absolute;
+    top: 3vh;
+    right: 3vh;
+    font-size: 2.5em;
+  }
+  .weekWeatherContainer {
+    background: rgb(0, 0, 0, 0.5);
+    position: absolute;
+    top: 100px;
+    right: 0;
+    z-index: +1;
+    width: 25%;
+    height: 120vh;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 1000px) {
+  .weekWeatherContainer {
+    display: block;
+  }
+
+  .slidebarIcon {
+    display: inline;
+    color: white;
+    position: absolute;
+    top: 3vh;
+    right: 3vh;
+    font-size: 2.5em;
+  }
+
+  .weekWeatherContainer {
+    background: rgb(0, 0, 0, 0.5);
+    position: absolute;
+    top: 100px;
+    right: 0;
+    z-index: +1;
+    width: 25%;
+    height: 120vh;
+    font-size: 2em;
+  }
+}
+
+@media (max-height: 600px) {
+  .dataContainer {
+    top: 60vh;
   }
 }
