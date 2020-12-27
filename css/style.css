@@ -12,77 +12,64 @@ body {
 }
 
 .navbar {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100px;
   background: black;
 }
 
-.dataContainer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  top: 40vh;
-  /*   height: 100%;
- */
+
+.mainContainer {  
+  margin-top: 3rem;
 }
 
 .generalWeather {
   font-size: 3em;
-
   display: block;
-  position: relative;
-  top: -5vh;
+  
 }
 
 .specificWeather {
   font-size: 1.5em;
   display: block;
-  position: relative;
-  top: -5vh;
 }
 
 .place,
 .country {
   font-size: 4em;
-  top: -25vh;
   display: inline;
-  position: relative;
 }
 
 .temperature {
   font-size: 1.5em;
-  position: relative;
-  top: -25vh;
   display: inline;
 }
 
 .time {
-  position: relative;
   font-size: 2.5em;
-  top: -25vh;
+  display: block;
 }
 
+.weatherInfo{
+  margin-top: 12rem;
+}
 .weatherIcon {
   font-size: 10em;
   color: black;
-  position: relative;
-  top: -5vh;
 }
+
 
 .inputContainer {
   position: absolute;
-  top: 3vh;
-  left: 5%;
+  top: 1rem;
+  left: 1.5rem;
 }
 
 .inputField {
   width: 220px;
   height: 35px;
   outline: none;
-  padding: 0 1vh;
+  padding: 0 5px;
 }
 
 .buttonOne {
@@ -96,14 +83,14 @@ body {
   font-size: 2.5em;
   font-weight: bold;
   position: relative;
-  margin-right: 3vh;
+  margin-right: 1.2rem;
   color: white;
 }
 
 .weekWeatherContainer {
   display: flex;
   position: absolute;
-  top: 2vh;
+  top: 1rem;
   right: 0;
   justify-content: space-between;
 }
@@ -143,6 +130,10 @@ body {
 }
 
 @media screen and (max-width: 350px) {
+  .inputContainer{
+    left: 15px !important;
+  }
+
   .inputField {
     width: 75%;
   }
@@ -162,13 +153,13 @@ body {
     font-size: 2.5em;
   }
   .weekWeatherContainer {
-    background: rgb(0, 0, 0, 0.5);
+    background: rgb(0, 0, 0, 0.7);
     position: absolute;
     top: 100px;
     right: 0;
     z-index: +1;
-    width: 25%;
-    height: 120vh;
+    width: 10rem;
+    height: auto;
     font-size: 2em;
   }
 }
@@ -182,25 +173,27 @@ body {
     display: inline;
     color: white;
     position: absolute;
-    top: 3vh;
-    right: 3vh;
+    top: 1.8rem;
+    right: 2rem;
     font-size: 2.5em;
   }
 
   .weekWeatherContainer {
-    background: rgb(0, 0, 0, 0.5);
+    background: rgb(0, 0, 0, 0.7);
     position: absolute;
     top: 100px;
     right: 0;
     z-index: +1;
-    width: 25%;
-    height: 120vh;
+    width: 10rem;
+    min-height: 100vh;
+    height: auto;
     font-size: 2em;
   }
 }
 
-@media (max-height: 600px) {
-  .dataContainer {
-    top: 60vh;
-  }
+@media(max-width:500px){
+  .inputContainer{
+    top: 2rem;
+    left: 2.3rem;
+}
 }
