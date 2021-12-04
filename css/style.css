@@ -5,25 +5,62 @@
 }
 
 body {
-  background-color: rgb(218, 218, 218);
-  color: black;
+  background-color: rgb(43 56 153 / 12%);
+  color: #606060;
   justify-content: center;
-  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
 }
+
+.text-size-1{
+  font-size: 3rem;
+  display:flex;
+  margin-bottom:1rem
+}
+
+.text-size-2{
+  font-size: 2rem;
+  display:flex;
+  margin-bottom:1rem;
+}
+
+.box-title{
+  margin-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+.box{
+  width:90%;
+  max-width:70rem;
+  border:1px solid #ccc;
+  padding:2.5rem;
+  border-radius:1.5rem;
+  margin: 1rem auto;
+  background:#fff;
+}
+
 
 .navbar {
   position: relative;
   width: 100%;
   height: 100px;
-  background: black;
+  background: #2a4670;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 .mainContainer {  
   margin-top: 3rem;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  /* background:#2a4670; */
+  background:linear-gradient(#2a4670, #9198e5);
+  color:#fff;
 }
 
-.generalWeather {
+/* .generalWeather {
   font-size: 3em;
   display: block;
   
@@ -38,10 +75,11 @@ body {
 .country {
   font-size: 4em;
   display: inline;
+  margin-bottom: 1rem;
 }
 
 .temperature {
-  font-size: 1.5em;
+  font-size: 4.5em;
   display: inline;
 }
 
@@ -49,27 +87,26 @@ body {
   font-size: 2.5em;
   display: block;
 }
-
-.weatherInfo{
-  margin-top: 12rem;
-}
+ */
 .weatherIcon {
-  font-size: 10em;
-  color: black;
+  font-size: 7em;
 }
 
 
 .inputContainer {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
+  position: relative;
+  width: min-content;
+  width: fit-content;
 }
 
 .inputField {
-  width: 220px;
-  height: 35px;
+  width: 275px;
+  height: 40px;
   outline: none;
   padding: 0 5px;
+  border-radius: 10rem;
+  padding-left: 1.5rem;
+  border: none;
 }
 
 .buttonOne {
@@ -77,52 +114,72 @@ body {
   color: white;
   font-size: 1.2em;
   display: inline;
+  position: absolute;
+  right: 15px;
+  color: #606060;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .appLogo {
   font-size: 2.5em;
   font-weight: bold;
   position: relative;
-  margin-right: 1.2rem;
+  margin-right: 1.5rem;
+  margin-left:1.5rem;
   color: white;
 }
 
+/* weekly weather box */
+
 .weekWeatherContainer {
   display: flex;
-  position: absolute;
   top: 1rem;
   right: 0;
   justify-content: space-between;
 }
 
 .weekWeatherContainer span {
-  color: white;
-  margin: 0 5vw;
+  color: #606060;
+  border-right: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+  display:flex;
+  flex-flow: column-reverse;
+  font-size: 1.2rem;
+}
+
+.weekWeatherContainer span:last-child{
+  border: none;
 }
 
 .weekWeatherContainer div {
-  font-size: 2em;
+  font-size: 3.5rem;
+  color: #d5d7ed;
+  margin-top:1.5rem;
 }
 
-.slidebarIcon {
-  display: none;
+/* other data box */
+
+.other-info-box .box-item{
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid #dcdcdc;
+  border-width:1px 0;
+  padding: 1rem 0;
+  font-size: 1.25rem;
 }
 
-/* @media screen and (max-width: 1000px) {
-  .weekWeatherContainer {
-    display: none;
-  }
-
-  .slidebarIcon {
-    display: inline;
-    color: white;
-    position: absolute;
-    top: 3vh;
-    right: 3vh;
-    font-size: 2.5em;
-  }
+.other-info-box .box-item span{
+  display: flex;
+  align-items:center
 }
- */
+
+.other-info-box .box-item span i{
+  margin-right:1rem;
+}
+
 @media screen and (max-width: 500px) {
   .appLogo {
     display: none;
@@ -139,7 +196,7 @@ body {
   }
 }
 
-@media (orientation: portrait) {
+/* @media (orientation: portrait) {
   .weekWeatherContainer {
     display: block;
   }
@@ -196,4 +253,30 @@ body {
     top: 2rem;
     left: 2.3rem;
 }
+} */
+
+@media(max-width:768px){
+  .text-size-1{
+    font-size: 1.8rem;
+  }
+
+  .text-size-2{
+    font-size:1.2rem;
+  }
+
+  .text-size-3,
+  div,
+  h5{
+    font-size: .8rem;
+  }
+
+  .box{
+    padding:1.5rem;
+  }
+
+  .weekWeatherContainer i{
+    font-size: 2.5rem;
+  }
+
+
 }

@@ -17,54 +17,96 @@
   <body>
     <div class="sidebar"></div>
     <nav class="navbar">
-      <div class="weekWeatherContainer">      
-      <span class="dayTwoWeather">
-        <div class="dayTwoIcon"><i class="fas fa-cloud"></i></div>
-        <h2></h2>
-        <h5>22/10/2020</h5>
-      </span>
-      <span class="dayThreeWeather">
-        <div class="dayThreeIcon"><i class="fas fa-cloud"></i></div>
-        <h2></h2>
-        <h5>22/10/2020</h5>
-      </span>
-      <span class="dayFourWeather">
-        <div class="dayFourIcon"><i class="fas fa-cloud"></i></div>
-        <h2></h2>
-        <h5>22/10/2020</h5>
-      </span>
-      <span class="dayFiveWeather">
-        <div class="dayFiveIcon"><i class="fas fa-cloud"></i></div>
-        <h2></h2>
-        <h5>22/10/2020</h5>
-      </span>
-    </div>
-    </nav>
-    <div class="inputContainer">
       <label for="logo" class="appLogo">Weap</label>
-      <input type="text" placeholder="City,Country" class="inputField">
-      <div class="buttonOne"><i class="fas fa-search"></i></div>
-    </div>
-  
-    <div class="slidebarIcon"><i class="fas fa-bars"></i></div>
-
-    
-    <div class="mainContainer">
-        <span class="dataContainer">
+      <div class="inputContainer">
+        <input type="text" placeholder="Search city" class="inputField">
+        <div class="buttonOne"><i class="fas fa-search"></i></div>
+      </div>
+    </nav>
+    <div class="mainContainer box">
           <div class="placeInfo">
-              <span class="place"></span>
-              <span class="country"></span>
-              <span class="time">sunday</span>
-              <span class="temperature"></span>
+              <div class="text-size-1">
+                <div class="place"></div>
+                <div class="country"></div>
+              </div>
+              <div class="time text-size-2">sunday</div>
+              <div class="temperature text-size-1"></div>
+              <div class="specificWeather"></div>
           </div>
           <div class="weatherInfo">
-              <span class="weatherIcon"></span>
-              <span class="generalWeather"></span>
-              <span class="specificWeather"></span>
+              <span class="weatherIcon"></span>              
           </div>
-        </span>
     </div>
-  
+    <div class="weekly-weather-box box">
+      <h2 class="box-title">Weather for the next few days</h2>
+      <div class="weekWeatherContainer">      
+        <span class="dayTwoWeather">
+          <div class="dayTwoIcon"><i class="fas fa-cloud"></i></div>
+          <h2></h2>
+          <h5>22/10/2020</h5>
+        </span>
+        <span class="dayThreeWeather">
+          <div class="dayThreeIcon"><i class="fas fa-cloud"></i></div>
+          <h2></h2>
+          <h5>22/10/2020</h5>
+        </span>
+        <span class="dayFourWeather">
+          <div class="dayFourIcon"><i class="fas fa-cloud"></i></div>
+          <h2></h2>
+          <h5>22/10/2020</h5>
+        </span>
+        <span class="dayFiveWeather">
+          <div class="dayFiveIcon"><i class="fas fa-cloud"></i></div>
+          <h2></h2>
+          <h5>22/10/2020</h5>
+        </span>
+       </div>
+    </div>
+    <div class="other-info-box box">
+      <h2 class="box-title">Other data</h2>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-users"></i>
+          <div>Population</div>
+        </span>
+        <div class="population"></div>
+      </div>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-globe"></i>
+          <div>Latitude</div>
+        </span>
+        <div class="latitude"></div>
+      </div>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-globe"></i>
+          <div>longitude</div>
+        </span>
+        <div class="longitude"></div>
+      </div>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-clock"></i>
+          <div>Timezone</div>
+        </span>
+        <div class="timezone"></div>
+      </div>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-sun"></i>
+          <div>sunrise</div>
+        </span>
+        <div class="sunrise"></div>
+      </div>
+      <div class="box-item">
+        <span>
+          <i class="fas fa-sun"></i>
+          <div>sunset</div>
+        </span>
+        <div class="sunset"></div>
+      </div>
+    </div>
     <script src="./js/script.js"></script>
   </body>
 </html>
