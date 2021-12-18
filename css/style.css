@@ -60,34 +60,6 @@ body {
   color:#fff;
 }
 
-/* .generalWeather {
-  font-size: 3em;
-  display: block;
-  
-}
-
-.specificWeather {
-  font-size: 1.5em;
-  display: block;
-}
-
-.place,
-.country {
-  font-size: 4em;
-  display: inline;
-  margin-bottom: 1rem;
-}
-
-.temperature {
-  font-size: 4.5em;
-  display: inline;
-}
-
-.time {
-  font-size: 2.5em;
-  display: block;
-}
- */
 .weatherIcon {
   font-size: 7em;
 }
@@ -100,7 +72,7 @@ body {
 }
 
 .inputField {
-  width: 275px;
+  width: 275px !important;
   height: 40px;
   outline: none;
   padding: 0 5px;
@@ -119,6 +91,11 @@ body {
   color: #606060;
   top: 50%;
   transform: translateY(-50%);
+  cursor:pointer;
+}
+
+.buttonOne:hover{
+  color: #000;
 }
 
 .appLogo {
@@ -165,10 +142,14 @@ body {
   display: flex;
   align-items:center;
   justify-content:space-between;
-  border:1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
   border-width:1px 0;
   padding: 1rem 0;
   font-size: 1.25rem;
+}
+
+.other-info-box .box-item:last-child{
+  border:none;
 }
 
 .other-info-box .box-item span{
@@ -196,65 +177,6 @@ body {
   }
 }
 
-/* @media (orientation: portrait) {
-  .weekWeatherContainer {
-    display: block;
-  }
-
-  .slidebarIcon {
-    display: inline;
-    color: white;
-    position: absolute;
-    top: 3vh;
-    right: 3vh;
-    font-size: 2.5em;
-  }
-  .weekWeatherContainer {
-    background: rgb(0, 0, 0, 0.7);
-    position: absolute;
-    top: 100px;
-    right: 0;
-    z-index: +1;
-    width: 10rem;
-    height: auto;
-    font-size: 2em;
-  }
-}
-
-@media (max-width: 1000px) {
-  .weekWeatherContainer {
-    display: block;
-  }
-
-  .slidebarIcon {
-    display: inline;
-    color: white;
-    position: absolute;
-    top: 1.8rem;
-    right: 2rem;
-    font-size: 2.5em;
-  }
-
-  .weekWeatherContainer {
-    background: rgb(0, 0, 0, 0.7);
-    position: absolute;
-    top: 100px;
-    right: 0;
-    z-index: +1;
-    width: 10rem;
-    min-height: 100vh;
-    height: auto;
-    font-size: 2em;
-  }
-}
-
-@media(max-width:500px){
-  .inputContainer{
-    top: 2rem;
-    left: 2.3rem;
-}
-} */
-
 @media(max-width:768px){
   .text-size-1{
     font-size: 1.8rem;
@@ -280,3 +202,112 @@ body {
 
 
 }
+
+
+/* searchbar suggestions list */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font: 16px Arial;  
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  /* background-color: DodgerBlue !important;  */
+  background-color: #9198e5 !important; 
+  color: #ffffff; 
+}
+
+.links {
+  margin-top: 100px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.links a {
+  padding: 10px 35px;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+.links a+a {
+  margin-left: 15px;
+}
+.links a.facebook {
+  background: #4267B2;
+}
+.links a.youtube {
+  background: red;
+}
+
+.my-links {
+			text-align: center;
+  margin-top: 100px;
+		}
+		.my-links h3 {
+			display: inline-block;
+			margin: 0 25px;
+		}
+		.my-links ul {
+			display: inline-block;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.my-links ul li {
+			display: inline-block;
+		}
+		.my-links ul span {
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+			display: inline-block;
+			background-color: #000;
+			color: #fff;
+			font-size: 22px;
+		}
+		.my-links ul p {
+			margin: 0;
+		}
